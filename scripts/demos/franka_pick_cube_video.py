@@ -137,6 +137,7 @@ BOWL_USD_PATH = convert_mesh_to_usd(
     BOWL_OBJ_PATH,
     "bowl",
     scale=(0.3, 0.3, 0.3),  # Scale from boggart-sim
+    rotation=euler_to_quat(math.pi / 2, 0, 0),  # 90 degrees around X-axis
 )
 
 
@@ -195,7 +196,7 @@ class FrankaPickCubeEnvCfg(DirectRLEnvCfg):
             visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(0.8, 0.2, 0.2)),  # red
             physics_material=sim_utils.RigidBodyMaterialCfg(static_friction=2.0, dynamic_friction=2.0),
         ),
-        init_state=RigidObjectCfg.InitialStateCfg(pos=(0.0, -0.1, table_surface_z + cube_size / 2)),  # on table
+        init_state=RigidObjectCfg.InitialStateCfg(pos=(0.0, -0.15, table_surface_z + cube_size / 2)),  # on table
     )
 
     # target bowl - using bowl mesh from boggart-sim
